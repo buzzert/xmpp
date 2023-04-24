@@ -49,7 +49,7 @@ func newSASL(identity, password string, permissions func(*sasl.Negotiator) bool,
 	}
 	return StreamFeature{
 		Name:       xml.Name{Space: ns.SASL, Local: "mechanisms"},
-		Necessary:  Secure,
+		Necessary:  0,
 		Prohibited: Authn,
 		List: func(ctx context.Context, e xmlstream.TokenWriter, start xml.StartElement) (bool, error) {
 			err := e.EncodeToken(start)
